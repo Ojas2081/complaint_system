@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'complaint_app/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'complaint_app/css/bootstrap.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Complaint Managaement System</title> 
+</head>
+<body>
+
+    {% include 'complaint_app/navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="{% static 'complaint_app/js/jquery-slim.js' %}"></script>
+    <script src="{% static 'complaint_app/js/popper.js' %}"></script>
+    <script src="{% static 'complaint_app/js/bootstrap.js' %}"></script>
+</body>
+</html>
