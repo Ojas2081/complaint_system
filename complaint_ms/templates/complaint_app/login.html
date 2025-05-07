@@ -1,38 +1,35 @@
-{% include 'complaint_app/layout.html' %}
+{% extends 'complaint_app/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
 
+{% block content %}
+<div id="successMessage" class="alert alert-success alert-dismissible fade show d-none text-center" role="alert">
+    User registered successfully!
+  </div>
+<div id="loginErrorAlert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+    <span id="loginErrorText"></span>
+  </div>
+<h3 class="text-center mb-4">Login</h3>
+<form id="loginForm">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" >
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" >
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-success">Login</button>
+  </div>
+  <div class="text-center mt-3">
+    <p>Don't have an account? <a href="/signup">Register here</a></p>
+  </div>
+</form>
+{% endblock %}
 
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            Login
-        </div>
-        <div class="card-body">
+{% block scripts %}
+<script src="{% static 'complaint_app/js/login.js' %}"></script>
+{% endblock %}
 
-
-            <div class="alert alert-success" role="alert">
-            
-            </div>
-        
-            <div class="alert alert-danger" role="alert">
-          
-            </div>
-
-
-            <form method="POST" action="/auth">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control"
-                           name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-        </div>
-        <div class="card-footer text-muted">
-            <a href="register"> Register? </a>
-        </div>
-    </div>
-</div>

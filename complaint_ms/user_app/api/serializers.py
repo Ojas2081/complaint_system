@@ -63,7 +63,6 @@ class UserLoginSerializer(serializers.Serializer):
         )
         print("User-->",user)
         if not user:
-            # print("None")
             msg = _('Unable to authenticate with provided credentials.')
             raise serializers.ValidationError({"errors":msg}, code='authorization')
 

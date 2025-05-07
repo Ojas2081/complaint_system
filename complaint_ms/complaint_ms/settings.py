@@ -134,6 +134,7 @@ STATICFILES_DIRS = [
 ]
 
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'complaint_ms.custom_exception_handler.custom_exception_handler',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',

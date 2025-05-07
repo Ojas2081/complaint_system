@@ -3,7 +3,9 @@ from complaint_app.models import Complaint
 from user_app.api.serializers import UserRegisterSerializer
 
 class ComplaintSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only = True)
+    # user = serializers.StringRelatedField(read_only = True)
+    user = UserRegisterSerializer(read_only = True)
+    assigned_to = serializers.StringRelatedField(read_only = True)
     # user_complaints = UserRegisterSerializer(read_only=True)
     class Meta:
         model = Complaint

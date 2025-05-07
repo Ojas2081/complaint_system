@@ -60,8 +60,8 @@
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #111827;
-    /* background-color: #fff; */
+    /* background-color: #111827; */
+    background-color: #fff;
   }
   
   [tabindex="-1"]:focus {
@@ -1573,8 +1573,8 @@
   .table-primary,
   .table-primary > th,
   .table-primary > td {
-    background-color: #1f2937;
-    /* background-color: #b8daff; */
+    /* background-color: #1f2937; */
+    background-color: #b8daff;
   }
   
   .table-primary th,
@@ -1706,8 +1706,8 @@
   .table-light,
   .table-light > th,
   .table-light > td {
-    background-color: #111827;
-    /* background-color: #fdfdfe; */
+    /* background-color: #111827; */
+    background-color: #fdfdfe;
   }
   
   .table-light th,

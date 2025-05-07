@@ -1,7 +1,7 @@
 
 body {
-    background: #111827;
-    /* background: #fafafa; */
+    /* background: #111827; */
+    background: #fafafa;
     color: #33333a;
     padding-top: 70px;
   }
@@ -11,15 +11,43 @@ body {
   }
   
   .main-color {
-    background-color: #1f2937 ;
-    /* background-color: #0e76a8 ; */
+    /* background-color: #1f2937 ; */
+    background-color: #0e76a8 ;
   }
   
   .strike-through-td {
       text-decoration: line-through;
   }
   
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* ensures it stays above other content */
+  }
   
+
+  .navbar {
+    min-height: 50px;
+    padding: 0.3rem 1rem;
+  }
+  .navbar-brand {
+    font-size: 1.3rem;
+    white-space: nowrap;
+  }
   
-  
-  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+  .alert {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-signup {
+    min-width: 90px;
+  }

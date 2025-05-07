@@ -1,0 +1,103 @@
+{% extends 'complaint_app/base.html' %} 
+{% load static %} 
+{% block title%}Complaint Detail{% endblock %} 
+{% block content %}
+<div class="text-center mb-4">
+  <button id="closeTicketBtn" class="btn btn-danger d-none">
+    Close Ticket
+  </button>
+</div>
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+    <h2 id="complaintTitle">Complaint Title</h2>
+    <div id="companyActions" class="d-none">
+      <button id="closeTicketBtn" class="btn btn-danger">Close Ticket</button>
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs mb-4" id="complaintTabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Summary</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Related Actions</a>
+    </li>
+  </ul>
+
+  <div class="card shadow-sm p-4">
+    <h5 class="mb-3">Complaint Record</h5>
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <strong>Name : </strong> <span id="userName"></span>
+      </div>
+      <div class="col-md-6">
+        <strong>Assigned To : </strong> <span id="assigned_to"></span>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <strong>Category : </strong> <span id="category"></span>
+      </div>
+      <div class="col-md-6">
+        <strong>Description : </strong> <span id="description"></span>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <strong>Status :</strong> <span id="status"></span>
+      </div>
+      <div class="col-md-6">
+        <strong>Resolution Notes :</strong> <span id="resolutionMsg"></span>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <strong>Created On :</strong> <span id="createdAt"></span>
+      </div>
+      <div class="col-md-6">
+        <strong>Created By :</strong> <span id="createdBy"></span>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <strong>Updated On :</strong> <span id="updatedAt"></span>
+      </div>
+    </div>
+    <div class="row mt-4 d-none" id="editFormRow">
+      <div class="col-12">
+        <label for="editDescription" class="form-label"
+          >Update Description</label
+        >
+        <textarea class="form-control" id="editDescription" rows="3"></textarea>
+        <button class="btn btn-primary mt-2" id="saveDescriptionBtn">
+          Save Changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <!-- Edit Section -->
+  <div id="editSection" class="card p-3 mb-4 d-none">
+    <h5>Edit Complaint Description</h5>
+    <textarea
+      id="editDescription"
+      class="form-control mb-2"
+      rows="4"
+      placeholder="Update your complaint..."
+    ></textarea>
+    <button onclick="updateDescription()" class="btn btn-primary">
+      Update
+    </button>
+  </div>
+
+  <!-- Close Ticket Button -->
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="{% static 'complaint_app/js/complaint_detail.js' %}"></script>
+<script src="{% static 'complaint_app/js/logout.js' %}" defer></script>
+{% endblock %}

@@ -20,8 +20,17 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-# def index(request):
-#     return render(request, 'complaint_app/register.html')
+def login_html(request):
+    return render(request, 'complaint_app/login.html')
+
+def register_html(request):
+    return render(request,'complaint_app/register.html')
+
+def complaint_list_view(request):
+    return render(request, 'complaint_app/complaints_list.html')
+
+def complaint_detail_id(request):
+    return render(request,'complaint_app/complaint_detail.html')
 
 class UserComplaintAV(APIView):
     permission_classes = [AdminOrReadOnly]

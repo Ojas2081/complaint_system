@@ -6,9 +6,26 @@ from rest_framework import status
 from .serializers import UserRegisterSerializer,UserLoginSerializer
 from rest_framework.authtoken.models import Token
 
+from complaint_app.api.permissions import ComplaintUserOrAdminOrReadonly
+
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
+
+class UserDetailAV(APIView):
+    permission_classes =[ComplaintUserOrAdminOrReadonly]
+    def get(self,request,*args,**kwargs):
+        # if self.request.user.is_company_user:
+        #     users = User.objects.all()
+        #     many = True
+        # else:
+        # try:
+        #     user = User.objects.get(email=request.user.email)
+        #     many = False
+        # except:
+        #     return Response({"error":"Not Authorized"}, status=status.HTTP_400_BAD_REQUEST)
+        serializer = UserRegisterSerializer(request.user)
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
 class UserRegisterAV(APIView):
 
@@ -60,5 +77,6 @@ class UserLogout(APIView):
 
     def post(self,request,*args,**kwargs):
         request.user.auth_token.delete()
+        print("Auth token deleted")
         return Response({"success":"User logged out"})
 
