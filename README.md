@@ -53,8 +53,8 @@ django_api_project/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/complaint-management-system.git
-cd complaint-management-system
+git clone [[https://github.com/yourusername/complaint-management-system.git](https://github.com/Ojas2081/complaint_system.git)]
+cd complaint_ms
 ```
 
 ### 2. Create Virtual Environment
