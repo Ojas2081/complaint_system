@@ -1,0 +1,78 @@
+{% extends 'complaint_app/base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">Edit Profile</h2>
+  <form id="editProfileForm" class="p-4 shadow rounded bg-white">
+    {% csrf_token %}
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label for="first_name" class="form-label">First Name</label>
+        <input type="text" id="first_name" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="last_name" class="form-label">Last Name</label>
+        <input type="text" id="last_name" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" disabled>
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="text" id="phone" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="gender" class="form-label">Gender</label>
+        <select id="gender" class="form-select">
+          <option value="" disabled selected>Choose...</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="zipcode" class="form-label">Zip Code</label>
+        <input type="text" id="zipcode" class="form-control">
+      </div>
+      <div class="col-12">
+        <label for="address" class="form-label">Address</label>
+        <textarea id="address" class="form-control" rows="2"></textarea>
+      </div>
+
+      <div class="col-md-6 d-none" id="companyPermission">
+        <div class="form-check mt-4">
+          <input class="form-check-input" type="checkbox" id="is_company_user">
+          <label class="form-check-label" for="is_company_user">
+            Company User
+          </label>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <label for="new_password" class="form-label">New Password</label>
+          <input type="password" id="new_password" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label for="confirm_password" class="form-label">Confirm Password</label>
+          <input type="password" id="confirm_password" class="form-control">
+          <small id="passwordMatchText" class="form-text text-danger d-none">Passwords do not match.</small>
+        </div>
+      </div>
+      
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary mt-3">Update Profile</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'complaint_app/js/edit_profile.js' %}"></script>
+{% endblock %}

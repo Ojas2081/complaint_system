@@ -1,0 +1,120 @@
+{% extends 'complaint_app/base.html' %}
+{% load static %} 
+{% block title %}Company Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center">Complaint KPI Data</h2>
+
+  <div class="row text-center my-4">
+    <div class="col-md-4"><h4 id="total">0</h4><p>Total Complaints</p></div>
+    <div class="col-md-4"><h4 id="inProgress">0</h4><p>In Progress</p></div>
+    <div class="col-md-4"><h4 id="resolvedPercent">0%</h4><p>Resolved Percentage</p></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+        <canvas id="statusPieChart" width="200" height="200"></canvas>
+    </div>
+    <div class="col-md-8"><canvas id="categoryBarChart"></canvas></div>
+  </div>
+</div>
+
+
+<!-- 
+<div class="mt-5">
+    <h5>Complaint Records</h5>
+    <input
+      type="text"
+      id="searchInput"
+      class="form-control mb-3"
+      placeholder="Search complaints by user name..."
+    />
+  
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Complaint Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Created On</th>
+        </tr>
+      </thead>
+      <tbody id="complaintsTableBody">
+
+      </tbody>
+    </table>
+  </div> -->
+
+  <div class="container mt-5">
+    <h4 class="mb-3">Filter Complaints</h4>
+  
+    <div class="row g-3 align-items-end">
+      <div class="col-md-4">
+        <label for="searchUser" class="form-label">Submitter Name</label>
+        <input type="text" id="searchUser" class="form-control" placeholder="Enter name" />
+      </div>
+      <div class="col-md-3">
+        <label for="searchCategory" class="form-label">Category</label>
+        <select id="searchCategory" class="form-select">
+          <option value="">All</option>
+          <option value="IT">IT</option>
+              <option value="Finance">Finance</option>
+              <option value="Sales">Sales</option>
+              <option value="Refund">Refund</option>
+              <option value="Business">Business</option>
+              <option value="HR">HR</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="searchStatus" class="form-label">Status</label>
+        <select id="searchStatus" class="form-select">
+          <option value="">All</option>
+          <option>Pending</option>
+          <option>InProgress</option>
+          <option>Require Feedback</option>
+          <option>Resolved</option>
+        </select>
+      </div>
+      <div class="col-md-2 d-grid">
+        <button id="filterBtn" class="btn btn-primary">Filter</button>
+      </div>
+    </div>
+  
+    <hr class="my-4" />
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover mt-3">
+        <thead class="table-dark">
+          <tr>
+            <th>Complaint Id</th>
+            <th>Submitter Name</th>
+            <th>Email</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody id="complaintsBody">
+          <!-- Rows inserted via JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{% static 'complaint_app/js/company_dashboard.js' %}"></script>
+<script src="{% static 'complaint_app/js/logout.js' %}" defer></script>
+{% endblock %}

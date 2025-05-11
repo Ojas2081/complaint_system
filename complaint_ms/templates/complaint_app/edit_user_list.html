@@ -1,0 +1,31 @@
+{% extends 'complaint_app/base.html' %}
+{% load static %}
+
+{% block title %}Edit Users{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h2 class="text-center mb-4">User Profiles</h2>
+  <div class="table-responsive shadow-sm rounded">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>User ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <!-- Populated by JavaScript -->
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'complaint_app/js/edit_user_list.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Complaint Resolved</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      .header {
+        background-color: #28a745;
+        color: white;
+        padding: 20px;
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+      }
+      .header h2 {
+        margin: 0;
+      }
+      .body {
+        padding: 20px;
+        text-align: left;
+      }
+      .body p {
+        line-height: 1.6;
+      }
+      .footer {
+        font-size: 12px;
+        color: #999;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .status-box {
+        background: #eaf8ec;
+        border-left: 5px solid #28a745;
+        padding: 15px;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Complaint Resolved</h2>
+      </div>
+      <div class="body">
+        <p>Hi {{ user_name }},</p>
+
+        <p>We’re happy to inform you that your complaint regarding <strong>"{{ complaint_type }}"</strong> has been resolved.</p>
+
+        <div class="status-box">
+          {{ resolution_msg }}
+        </div>
+
+        <p>If you have any further issues or questions, feel free to reach out again.</p>
+
+        <p>Thank you for your patience.</p>
+
+        <p>— Complaint Management System Team</p>
+      </div>
+      <div class="footer">
+        &copy; {{ year }} Complaint Management System. All rights reserved.
+      </div>
+    </div>
+  </body>
+</html>

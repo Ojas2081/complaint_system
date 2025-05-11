@@ -1,20 +1,52 @@
-{% extends 'complaint_app/base.html' %}
-{% load static %}
-
-{% block title %}Complaints List{% endblock %}
-
+{% extends 'complaint_app/base.html' %} 
+{% load static %} 
+{% block title%}Complaints List{% endblock %} 
 {% block content %}
-<div id="successMessage" class="alert alert-success alert-dismissible fade show d-none text-center" role="alert">
-  User registered successfully!
+
+<div
+  id="successMessage"
+  class="alert alert-success alert-dismissible fade show d-none text-center"
+  role="alert"
+>
+Complaint registered successfully!
 </div>
+<div class="d-flex justify-content-between align-items-center">
+  <div>
+    <label for="filter_sort" class="form-label me-2">Filter by Status: </label>
+    <select id="filter_sort" class="form-select d-inline w-auto" onchange="filter_function()">
+      <option value="" selected>All</option>
+      <option value="Request Submitted">Request Submitted</option>
+      <option value="Pending">Pending</option>
+      <option value="InProgress">InProgress</option>
+      <option value="Resolved">Resolved</option>
+    </select>
+  </div>
+  <a
+    href=""
+    onclick="business_view(event)"
+    id="businessDetailsBtn"
+    class="btn btn-success d-none"
+    >Business Details</a
+  >
+</div>
+
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h4>Complaint Records</h4>
-    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addComplaintModal">+ Add Complaint</a>
+    <a
+      href=""
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#addComplaintModal"
+      >+ Add Complaint</a
+    >
   </div>
 
   <div class="table-responsive">
-    <table class="table table-bordered table-hover align-middle" id="complaintsTable">
+    <table
+      class="table table-bordered table-hover align-middle"
+      id="complaintsTable"
+    >
       <thead class="table-dark text-center">
         <tr>
           <th>Complaint Id</th>
@@ -33,37 +65,82 @@
 </div>
 
 <!-- Add Complaint Modal -->
-<div class="modal fade" id="addComplaintModal" tabindex="-1" aria-labelledby="addComplaintLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="addComplaintModal"
+  tabindex="-1"
+  aria-labelledby="addComplaintLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
-    <div class="modal-content" style="z-index: 1050;">
+    <div class="modal-content" style="z-index: 1050">
       <div class="modal-header">
         <h5 class="modal-title" id="addComplaintLabel">Add New Complaint</h5>
-        <button id="cross_button" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          id="cross_button"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <form id="complaintForm">
           <div class="mb-3">
-            <label for="complaint_type" class="form-label">Complaint Type</label>
-            <input type="text" class="form-control" id="complaint_type" required>
+            <label for="complaint_type" class="form-label"
+              >Complaint Type</label
+            >
+            <select id="complaint_type" class="form-select" required>
+              <option value="" disabled selected>Choose...</option>
+              <option value="IT">IT</option>
+              <option value="Finance">Finance</option>
+              <option value="Sales">Sales</option>
+              <option value="Refund">Refund</option>
+              <option value="Business">Business</option>
+              <option value="HR">HR</option>
+            </select>
+
+            <!-- <input type="text" class="form-control" id="complaint_type" required> -->
+          </div>
+          <div class="mb-3">
+            <label for="file" class="form-label">Upload File (optional)</label>
+            <input
+              type="file"
+              class="form-control"
+              id="file"
+              name="file"
+              accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+            />
           </div>
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" rows="3" required></textarea>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              required
+            ></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" form="complaintForm" class="btn btn-primary">Submit</button>
-        <button id = "cancel_button" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" form="complaintForm" class="btn btn-primary">
+          Submit
+        </button>
+        <button
+          id="cancel_button"
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Cancel
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-
-{% endblock %}
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script src="{% static 'complaint_app/js/complaints_list.js' %}"></script>
 <script src="{% static 'complaint_app/js/logout.js' %}" defer></script>
 {% endblock %}

@@ -28,7 +28,7 @@ urlpatterns = [
     path("", include('complaint_app.api.urls')),
     path("user/", include('user_app.api.urls')),
     # path("api-auth",include('rest_framework.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=os.path.join(BASE_DIR, 'complaint_app', 'static'))
